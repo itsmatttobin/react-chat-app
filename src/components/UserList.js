@@ -18,7 +18,7 @@ class UserList extends Component {
 			<div className="user-list">				
 				{this.props.onlineUsers !== undefined &&
 					<div>
-						<h3>Online Users</h3>
+						<h3>Online users</h3>
 						<ul>
 							{Object.keys(this.props.onlineUsers).map(this.renderUser)}
 						</ul>

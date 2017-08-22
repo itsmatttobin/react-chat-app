@@ -43,7 +43,6 @@ h1, h2, h3, h4, h5, h6 {
 	width: 25%;
 	background-color: var(--green);
 	height: 100%;
-	text-align: center;
 }
 #sidebar .top {
 	background-color: var(--darkgrey);
@@ -69,8 +68,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 16px;
 	background-color: transparent;
 	border-bottom: 1px solid var(--darkgrey);
-	text-align: center;
-	max-width: 300px;
+	max-width: 305px;
 	font-weight: 300;
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -136,6 +134,7 @@ h1, h2, h3, h4, h5, h6 {
 	width: 100%;
 	padding: 20px;
 	outline: none;
+	font-weight: 300;
 }
 
 
