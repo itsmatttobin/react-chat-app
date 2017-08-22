@@ -9,16 +9,17 @@ class SendMessageForm extends Component {
 	}
 
 	render() {
-		return (
-			<div className="send-message">
+		return (	
+			<div>		
 				{this.props.curUser != null &&
-					<div>
-					<h3>New message</h3>
-					<form ref={(input) => this.messageForm = input } onSubmit={(e) => this.sendMessage(e)}>
-						<input type="text" ref={(input) => this.message = input} />		
-					</form>
+					<div className="send-message">
+						<div>
+							<form ref={(input) => this.messageForm = input } onSubmit={(e) => this.sendMessage(e)}>
+								<input type="text" ref={(input) => this.message = input} placeholder="New message..." />		
+							</form>
+						</div>
 					</div>
-				}
+				}			
 			</div>
 		)
 	}

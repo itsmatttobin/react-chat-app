@@ -1,5 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+
+:root {
+	--black: #131515;
+	--darkgrey: #2B2C28;
+	--lightgrey: #51524F; /* 81,82,79 */
+	/*--green: #339989;*/
+	/*--lightgreen: #7DE2D1;*/
+	--green: #82D173;
+	--lightgreen: #ABFAA9;
+	--offwhite: #FFFAFB;
+}
+
+* {
+	box-sizing: border-box;
+}
+html {
+	height: 100%;
+}
 body {
+	height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+  position: relative;
+  color: var(--black);
 }
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+}
+
+#app {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+#sidebar {
+	float: left;
+	width: 25%;
+	background-color: var(--green);
+	height: 100%;
+}
+#sidebar .top {
+	background-color: var(--darkgrey);
+	padding: 20px;
+	color: var(--offwhite);
+	text-align: center;
+}
+#sidebar .top h1,
+#sidebar .top h4 {
+	font-weight: 400;
+	margin: 0;
+}
+#sidebar .bottom {
+	padding: 20px;
+}
+.user-form {
+	text-align: center;
+}
+.user-form label {
+	display: none;
+}
+.user-form input {
+	outline: none;
+	border: 0;
+	width: 100%;
+	font-size: 16px;
+	background-color: transparent;
+	border-bottom: 1px solid var(--darkgrey);
+	text-align: center;
+	max-width: 300px;
+	font-weight: 300;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: var(--lightgrey);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: var(--lightgrey);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: var(--lightgrey);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: var(--lightgrey);
+}
+#main {
+	float: left;
+	width: 75%;
+	background-color: var(--offwhite);
+	height: 100%;
+	padding: 20px;
+	position: relative;
+}
+.messages-list {
+	border-radius: 20px;
+	border: 1px solid rgba(81,82,79,0.2);
+	background-color: #fff;
+	height: 100%;
+	padding: 20px 20px 0;
+	overflow-y: scroll;
+}
+.messages-list.has-user {
+	padding-bottom: 60px;
+}
+.messages-list ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0 0 20px;
+}
+.messages-list.has-user ul {
+}
+.send-message {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	right: 20px;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	background-color: #fff;
+	border: 1px solid rgba(81,82,79,0.2);
+}
+.send-message input {
+	background-color: transparent;
+	border: 0;
+	font-size: 16px;
+	width: 100%;
+	padding: 20px;
+	outline: none;
+}
+
+

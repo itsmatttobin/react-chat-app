@@ -53,16 +53,21 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="app">
-				<header>
-					<h1>Chat</h1>
-				</header>
-				
-				<UserForm addUser={this.addUser} />
+			<div id="app">
+				<aside id="sidebar">
+					<div className="top">
+						<h1>Chat</h1>
+						<h4>A React App</h4>
+					</div>
+					<div className="bottom">
+						<UserForm addUser={this.addUser} />
+					</div>
+				</aside>
 
-				<MessageList messages={this.state.messages} />
-
-				<SendMessageForm addMessage={this.addMessage} curUser={this.state.curUser} />
+				<section id="main">
+					<MessageList messages={this.state.messages} curUser={this.state.curUser} />
+					<SendMessageForm addMessage={this.addMessage} curUser={this.state.curUser} />
+				</section>
 			</div>
 		);
 	}

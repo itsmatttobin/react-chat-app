@@ -23,10 +23,10 @@ class UserForm extends Component {
 	render() {
 		return (
 			<div className="user-form">
-				<h3>You</h3>
+				<h3>Enter a username to begin chatting</h3>
 				<form ref={(input) => this.userForm = input} onSubmit={(e) => this.handleUser(e)} >
 					<label htmlFor="username">Username:</label>
-					<input type="text" name="username" ref={(input) => this.username = input} disabled={this.state.userAdded} />
+					<input type="text" name="username" ref={(input) => this.username = input} disabled={this.state.userAdded} placeholder="Username..." />
 				</form>
 			</div>
 		)
