@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import UserForm from './UserForm';
-import UserList from './UserList';
 import SendMessageForm from './SendMessageForm';
+import MessageList from './MessageList';
+import base from '../base';
 
 class App extends Component {
 	constructor() {
@@ -15,6 +16,17 @@ class App extends Component {
 			messages: {},
 			curUser: null
 		}
+	}
+
+	componentWillMount() {
+		this.messagesRef = base.syncState('messages', {
+			context: this,
+			state: 'messages'
+		});
+		this.usersRef = base.syncState('users', {
+			context: this,
+			state: 'users'
+		});
 	}
 
 	addUser(user) {
@@ -32,7 +44,9 @@ class App extends Component {
 		const timestamp = Date.now();
 		messages[`message-${timestamp}`] = {
 			content: message,
-			user: this.state.curUser
+			uid: this.state.curUser,
+			username: this.state.users[this.state.curUser].username,
+			timestamp: timestamp
 		}
 		this.setState({ messages });
 	}
@@ -45,18 +59,8 @@ class App extends Component {
 				</header>
 				
 				<UserForm addUser={this.addUser} />
-				<UserList users={this.state.users} />
 
-				<div className="messages-list">
-					<h3>Messages</h3>
-					<ul>
-						{
-							Object
-								.keys(this.state.messages)
-								.map(key => <li key={key}>{this.state.messages[key].content}</li>)
-						}
-					</ul>
-				</div>
+				<MessageList messages={this.state.messages} />
 
 				<SendMessageForm addMessage={this.addMessage} curUser={this.state.curUser} />
 			</div>
