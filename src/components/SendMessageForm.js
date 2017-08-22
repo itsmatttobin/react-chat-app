@@ -4,7 +4,9 @@ class SendMessageForm extends Component {
 	sendMessage(e) {
 		e.preventDefault();
 
-		this.props.addMessage(this.message.value);
+		if(this.message.value !== '')
+			this.props.addMessage(this.message.value);
+
 		this.messageForm.reset();
 	}
 
