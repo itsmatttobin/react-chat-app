@@ -43,6 +43,7 @@ h1, h2, h3, h4, h5, h6 {
 	width: 25%;
 	background-color: var(--green);
 	height: 100%;
+	text-align: center;
 }
 #sidebar .top {
 	background-color: var(--darkgrey);
@@ -57,9 +58,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 #sidebar .bottom {
 	padding: 20px;
-}
-.user-form {
-	text-align: center;
 }
 .user-form label {
 	display: none;
@@ -86,6 +84,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 :-moz-placeholder { /* Firefox 18- */
   color: var(--lightgrey);
+}
+.user-list {
+	margin-top: 50px;
+}
+.user-list ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
 }
 #main {
 	float: left;

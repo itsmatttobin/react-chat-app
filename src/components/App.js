@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UserForm from './UserForm';
+import UserList from './UserList';
 import SendMessageForm from './SendMessageForm';
 import MessageList from './MessageList';
 import base from '../base';
@@ -10,9 +11,11 @@ class App extends Component {
 
 		this.addUser = this.addUser.bind(this);
 		this.addMessage = this.addMessage.bind(this);
+		this.leaveChat = this.leaveChat.bind(this);
 
 		this.state = {
 			users: {},
+			onlineUsers: {},
 			messages: {},
 			curUser: null
 		}
@@ -27,14 +30,38 @@ class App extends Component {
 			context: this,
 			state: 'users'
 		});
+		this.usersRef = base.syncState('onlineUsers', {
+			context: this,
+			state: 'onlineUsers'
+		});
+	}
+
+	componentDidMount() {
+		window.addEventListener('beforeunload', this.leaveChat);
+	}
+
+	componentWillUnmount() {
+		this.leaveChat();
+	}
+
+	leaveChat() {
+		const onlineUsers = {...this.state.onlineUsers};
+		onlineUsers[this.state.curUser] = null;
+		this.setState({ onlineUsers });
 	}
 
 	addUser(user) {
 		const users = {...this.state.users};
+		const onlineUsers = {...this.state.onlineUsers};
+		
 		const uid = `${user.username}-${Date.now()}`;
+		
 		users[uid] = user;
+		onlineUsers[uid] = user;
+
 		this.setState({ 
 			users,
+			onlineUsers,
 			curUser: uid
 		});
 	}
@@ -61,6 +88,7 @@ class App extends Component {
 					</div>
 					<div className="bottom">
 						<UserForm addUser={this.addUser} />
+						<UserList onlineUsers={this.state.onlineUsers} />
 					</div>
 				</aside>
 

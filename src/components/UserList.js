@@ -9,21 +9,22 @@ class UserList extends Component {
 
 	renderUser(key) {
 		return (
-			<li key={key}>{this.props.users[key].username}</li>
+			<li key={key}>{this.props.onlineUsers[key].username}</li>
 		)
 	}
 
 	render() {
+		console.log(this.props.onlineUsers);
 		return (
-			<div className="user-list">
-				<h3>All Users</h3>
-				{Object.keys(this.props.users).length === 0 ? (
-					<p>No Users</p>
-				) : (				
-					<ul>
-						{Object.keys(this.props.users).map(this.renderUser)}
-					</ul>
-				)}
+			<div className="user-list">				
+				{this.props.onlineUsers !== undefined &&
+					<div>
+						<h3>Online Users</h3>
+						<ul>
+							{Object.keys(this.props.onlineUsers).map(this.renderUser)}
+						</ul>
+					</div>
+				}
 			</div>
 		)
 	}
