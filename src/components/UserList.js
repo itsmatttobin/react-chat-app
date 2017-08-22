@@ -14,7 +14,6 @@ class UserList extends Component {
 	}
 
 	render() {
-		console.log(this.props.onlineUsers);
 		return (
 			<div className="user-list">				
 				{this.props.onlineUsers !== undefined &&
